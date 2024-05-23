@@ -23,6 +23,6 @@ public class Memo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // 키 생성방식
 	int no;
 	
-	@Column(length = 200, nullable = true) // 컬럼의 속성
+	@Column(length = 200, nullable = false) // 컬럼의 속성
 	String text; // 컬럼의 이름과 자료형
 }
