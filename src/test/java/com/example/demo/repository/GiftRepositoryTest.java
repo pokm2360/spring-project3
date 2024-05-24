@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -71,5 +72,32 @@ public class GiftRepositoryTest {
 	@Test
 	public void 데이터일괄삭제() {
 		giftRepository.deleteAll();
+	}
+	
+	@Test
+	public void 가격이50000원이상인선물검색() {
+		List<Gift> list = giftRepository.get1(50000);
+		
+		for(Gift gift : list) {
+			System.out.println(gift);
+		}
+	}
+	
+	@Test
+	public void 이름이세트로끝나는선물검색() {
+		List<Gift> list = giftRepository.get2("세트");
+		
+		for(Gift gift : list) {
+			System.out.println(gift);
+		}
+	}
+	
+	@Test
+	public void 가격이40000원이하고품목은생활용품인선물검색() {
+		List<Gift> list = giftRepository.get3(40000, "생활용품");
+		
+		for(Gift gift : list) {
+			System.out.println(gift);
+		}
 	}
 }

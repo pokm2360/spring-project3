@@ -69,4 +69,31 @@ public class BookRepositoryTest {
 	public void 데이터전체삭제() {
 		bookRepository.deleteAll(); // 테이블의 모든 데이터 일괄 삭제
 	}
+	
+	@Test
+	public void 제목이자바프로그래밍입문검색() {
+		List<Book> list = bookRepository.get1("자바프로그래밍입문");
+		
+		for(Book book : list) {
+			System.out.println(book);
+		}
+	}
+	
+	@Test
+	public void 가격이3만원이상출판사가남가람북스인책검색() {
+		List<Book> list = bookRepository.get2(30000, "남가람북스");
+		
+		for(Book book : list) {
+			System.out.println(book);
+		}
+	}
+	
+	@Test
+	public void 출판사가한빛출판사또는이지스퍼블리싱인책검색() {
+		List<Book> list = bookRepository.get3("한빛출판사", "이지스퍼블리싱");
+		
+		for(Book book : list) {
+			System.out.println(book);
+		}
+	}
 }

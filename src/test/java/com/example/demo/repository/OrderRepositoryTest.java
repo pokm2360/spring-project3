@@ -63,4 +63,22 @@ public class OrderRepositoryTest {
 	public void 데이터전체삭제() {
 		orderRepository.deleteAll();
 	}
+	
+	@Test
+	public void 주소지가인천검색() {
+		List<Order> list = orderRepository.get1("인천");
+		
+		for(Order order : list) {
+			System.out.println(order);
+		}
+	}
+	@Test
+	public void 주문일이7월3일인거검색() {
+		LocalDate localDate = LocalDate.parse( "2023-07-03" );
+		List<Order> list = orderRepository.get2(localDate);
+		
+		for(Order order : list) {
+			System.out.println(order);
+		}
+	}
 }
