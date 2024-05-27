@@ -14,7 +14,7 @@ public interface GiftRepository extends JpaRepository<Gift, Integer>{
 	@Query("select g from Gift g where g.price >= :gprice")
 	List<Gift> get1(@Param("gprice") int gprice);
 	
-//	이름이 세트로 끝나는 선물 검색
+//	이름이 세트로 끝나는 선물 검색 - %도 가능
 	@Query("select g from Gift g where RIGHT(g.name, 2) = :gname")
 	List<Gift> get2(@Param("gname") String gname);
 	
